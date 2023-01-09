@@ -10,6 +10,6 @@ def index(request):
 
 def dashboard(request):
     """Shows list of subjects and graph"""
-    subjects = Subject.objects.order_by('credit_amount')
+    subjects = Subject.objects.all().order_by('credit_amount')
     context = {'subjects': subjects}
     return render(request, 'msgrad_app/dashboard.html', context)

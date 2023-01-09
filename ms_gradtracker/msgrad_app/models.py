@@ -4,7 +4,7 @@ from django.db import models
 class Subject(models.Model):
     # subject name - Arts, English, etc.
     name = models.CharField(max_length=80)
-    
+
     # total credits for one subject
     credit_amount = models.DecimalField(default=0, max_digits=2, decimal_places=1)
 
@@ -19,9 +19,11 @@ class Subject(models.Model):
 class Course(models.Model):
     # links to Subject subject
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null=True)
+    
     name = models.CharField(max_length=100)
-    credit_amount = models.IntegerField()
+    credit_amount = models.DecimalField(default=0, max_digits=2, decimal_places=1)
     gpa = models.DecimalField(default=0, max_digits=3, decimal_places=2)
+
     
     def __str__(self):
         # "Returns a string representation of the model"
