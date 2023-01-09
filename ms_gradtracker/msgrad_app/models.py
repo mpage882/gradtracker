@@ -17,6 +17,7 @@ class Course(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100)
     credit_amount = models.IntegerField()
+    gpa = models.DecimalField(default=0, max_digits=3, decimal_places=2)
     
     def __str__(self):
         # "Returns a string representation of the model"
