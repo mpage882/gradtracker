@@ -1,15 +1,28 @@
 from django.db import models
 
+from django.db.models import Sum
+
+
 # Create your models here.
 class Subject(models.Model):
     # subject name - Arts, English, etc.
     name = models.CharField(max_length=80)
-    
+
     # total credits for one subject
     credit_amount = models.DecimalField(default=0, max_digits=2, decimal_places=1)
 
     # total student's credits
-    total_credits = models.DecimalField(default=0, max_digits=2, decimal_places=1)
+    user_credits = models.DecimalField(default=0, max_digits=3, decimal_places=1)
+    
+    # function to total user credits in a given subject 
+    def totalCredits(self):
+        courses = Course.objects.filter(subject=self)
+        credits = 0
+        for course in courses:
+            credits += course.credit_amount
+        self.user_credits = credits
+        self.save()
+        return self.user_credits
 
     def __str__(self):
         # "Returns a string representation of the model"
@@ -19,10 +32,13 @@ class Subject(models.Model):
 class Course(models.Model):
     # links to Subject subject
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null=True)
+    
     name = models.CharField(max_length=100)
-    credit_amount = models.IntegerField()
-    gpa = models.DecimalField(default=0, max_digits=3, decimal_places=2)
+    credit_amount = models.DecimalField(default=0, max_digits=2, decimal_places=1)
+    gpa = models.DecimalField(default=0, max_digits=3, decimal_places=2)    
+    
     
     def __str__(self):
         # "Returns a string representation of the model"
         return self.name
+
