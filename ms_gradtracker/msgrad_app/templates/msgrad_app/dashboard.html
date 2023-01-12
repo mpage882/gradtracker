@@ -2,7 +2,8 @@
 
 {% block content %}
 
-    <h2>Welcome to "UserName"!</h2>
+    <h2>Welcome "UserName"!</h2>
+    <p>Click on the subject's name to add courses.</p>
 
     <!-- List Subjects with total credits to req. amount with links to subject -->
     <table>
@@ -20,7 +21,12 @@
                 <td>None</td>
                 <td>0.0/0.0</td>
             </tr>     
-        {% endfor %}      
+        {% endfor %} 
+        <tr>
+            <td><b>Total:</b></td>
+            <!-- FIXME: Create and add overall total variable here. -->
+            <td>2.0/24.0</td>
+        </tr>     
     </table>
 
 {% endblock content %}
