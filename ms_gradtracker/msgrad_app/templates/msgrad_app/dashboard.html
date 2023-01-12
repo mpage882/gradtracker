@@ -4,7 +4,7 @@
 
     <h2>Welcome to "UserName"!</h2>
 
-    <!-- List Subjects with total credits to req. amount. -->
+    <!-- List Subjects with total credits to req. amount with links to subject -->
     <table>
         <tr>
            <th>Subject</th>
@@ -12,8 +12,8 @@
         </tr>
         {% for subject in subjects %}
             <tr>
-                <td>{{ subject.name }}</td>
-                <td>{{ subject.total_credits }}/{{ subject.credit_amount }}</td>
+                <td><a href="{% url 'msgrad_app:subject' subject.id %}">{{ subject }}</a></td>
+                <td>{{ subject.totalCredits }}/{{ subject.credit_amount }}</td>
             </tr>
         {% empty %}
             <tr>

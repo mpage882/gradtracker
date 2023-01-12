@@ -1,0 +1,19 @@
+{% extends "msgrad_app/base.html" %}
+
+{% block content %}
+
+    <h2>{{ subject }}</h2>
+
+    <ul>
+    {% for course in courses %}
+        <li>
+            <p>{{ course.name }} - {{ course.credit_amount }}</p>
+        </li>
+    {% empty %}
+        <li>Add courses.</li>
+    {% endfor %}
+    </ul>
+
+    <p>Total Credits: {{ subject.user_credits }}</p>
+
+{% endblock content %}

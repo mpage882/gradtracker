@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
-from .models import Subject
+from django.db.models import Sum
+
+from .models import Subject, Course
+
 
 # Create your views here.
 
@@ -9,7 +12,22 @@ def index(request):
     return render(request, 'msgrad_app/index.html')
 
 def dashboard(request):
-    """Shows list of subjects and graph"""
-    subjects = Subject.objects.all().order_by('credit_amount')
-    context = {'subjects': subjects}
+    """Shows list of courses on subject page"""
+    subjects = Subject.objects.all()
+    context = {'subjects': subjects,
+            }
+
     return render(request, 'msgrad_app/dashboard.html', context)
+
+    
+def subject(request, subject_id):
+    """Shows list of courses on subject page"""
+    subject = Subject.objects.get(id=subject_id)
+    courses = subject.course_set.all()
+
+    context = {'subject': subject,
+               'courses': courses,
+            }
+    return render(request, 'msgrad_app/subject.html', context)
+
+

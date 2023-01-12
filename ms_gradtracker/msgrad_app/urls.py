@@ -10,5 +10,6 @@ urlpatterns = [
     # Home page
     path('', views.index, name='index'),
     path('dashboard', views.dashboard, name='dashboard'),
+    path('subjects/<int:subject_id>/', views.subject, name='subject'),
 
 ]
