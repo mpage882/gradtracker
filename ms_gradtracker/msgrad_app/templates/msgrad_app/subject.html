@@ -10,6 +10,7 @@
         <li>
             <p>{{ course.name }} - {{ course.credit_amount }}</p> 
             <p><a href="{% url 'msgrad_app:edit_course' course.id %}">Edit course</a></p>
+            <p><a href="{% url 'msgrad_app:delete_course' course.id %}">Delete course</a></p>
         </li>
     {% empty %}
         <li>Add courses.</li>
