@@ -86,7 +86,7 @@ def delete_course(request, course_id):
     
     else:
         course.delete()
-        messages.success(request, 'Course is now deleted.')
+        #messages.success(request, 'Course is now deleted.')
         return redirect('msgrad_app:subject', subject_id=subject.id)
 
     

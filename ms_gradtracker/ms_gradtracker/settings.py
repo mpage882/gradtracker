@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # My apps
     'msgrad_app',
+    'users',
 
     # Installed apps
 

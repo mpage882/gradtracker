@@ -1,0 +1,16 @@
+{% extends "msgrad_app/base.html" %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+
+    <h2>Sign Up</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Register</button>
+        <input type="hidden" name="next" value="{% url 'msgrad_app:index' %}"/>
+    </form>
+
+{% endblock content %}
