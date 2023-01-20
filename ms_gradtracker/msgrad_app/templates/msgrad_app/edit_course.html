@@ -1,0 +1,14 @@
+{% extends "msgrad_app/base.html" %}
+
+{% block content %}
+
+    <p><a href="{% url 'msgrad_app:subject' subject.id %}">{{ subject }}</a></p>
+
+    <p>Add course:</p>
+    <form action="{% url 'msgrad_app:edit_course' course.id %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Save Course</button>
+    </form>
+
+{% endblock content%}
