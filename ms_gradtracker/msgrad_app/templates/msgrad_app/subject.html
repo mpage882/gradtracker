@@ -3,7 +3,7 @@
 {% block content %}
 
     <h2>{{ subject }}</h2>
-    <p><a href="{% url 'msgrad_app:add_course' subject.id %}">Add course</a></p>
+    <h5><a href="{% url 'msgrad_app:add_course' subject.id %}">Add course</a></h5>
 
     <ul>
     {% for course in courses %}
@@ -19,6 +19,6 @@
 
     <p>Total Credits: {{ subject.totalCredits }}</p>
 
- 
+    <h6><a href="{% url 'msgrad_app:dashboard' %}">Back to Dashboard</h6>
 
 {% endblock content %}

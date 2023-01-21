@@ -44,5 +44,5 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    #messages.info(request, "You are now logged out.")
-    return render (request, "users/logout.html")
+    messages.info(request, "You have been logged out. Until next time, grad tracker.")
+    return render (request, "msgrad_app/index.html")
