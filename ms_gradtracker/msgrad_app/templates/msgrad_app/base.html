@@ -1,34 +1,32 @@
 <head>
 
-{% load bootstrap5 %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% bootstrap_css %}
+    {% load bootstrap5 %}
 
-{% bootstrap_javascript %}
+    {% bootstrap_css %}
 
-{% bootstrap_messages %}
+    {% bootstrap_javascript %}
+
+    {% bootstrap_messages %} 
 
     <p>
+        <!-- grad logo with link -->
         <a href="{% url 'msgrad_app:index' %}">Grad Tracker</a> -
-        <a href="{% url 'msgrad_app:dashboard' %}">Dashboard</a> - 
+        <!-- dashboard and login will be on the right -->
+        <a href="{% url 'msgrad_app:dashboard' %}">Dashboard</a> -
+        <!-- Login/Logout will be buttons  -->
         {% if user.is_authenticated %}
             <a href="{% url 'users:logout' %}">Logout</a>
         {% else %}
-            <a href="{% url 'users:register' %}">Register</a> -
             <a href="{% url 'users:login' %}">Login</a>
         {% endif %}
     </p>
 
 </head>
 
-{% block content %}
-{% if messages %}
-<div class="messages">
-    {% for message in messages %}
-    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-    {% endfor %}
-</div>
-{% endif %}
 
 
-{% endblock content%}
+{% block content %}{% endblock content %}
