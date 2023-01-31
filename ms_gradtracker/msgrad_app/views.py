@@ -7,7 +7,7 @@ from .forms import addCourseForm
 from django.contrib.auth.decorators import login_required
 
 from django.db.models import Sum,Q
-from django.http import Http404, HttpResponse
+from django.http import Http404
 
 
 
