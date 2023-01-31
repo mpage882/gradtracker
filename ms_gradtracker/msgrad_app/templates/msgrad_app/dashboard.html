@@ -15,20 +15,21 @@
            <th>Credits</th>  
         </tr>
         {% for subject in subjects %}
+
             <tr>
                 <td><a href="{% url 'msgrad_app:subject' subject.id %}">{{ subject }}</a></td>
-                <td>{{ subject.totalCredits }}/{{ subject.credit_amount }}</td>
+                <td>{{ subject.studentCredits }}/{{ subject.credit_amount }}</td>
             </tr>
         {% empty %}
             <tr>
                 <td>None</td>
                 <td>0.0/0.0</td>
-            </tr>     
+            </tr>  
         {% endfor %} 
         <tr>
             <td><b>Total:</b></td>
             <!-- FIXME: Create and add overall total variable here. -->
-            <td>2.0/24.0</td>
+            <td>{{ totalCredits.total }}/24.0</td>
         </tr>     
     </table>
 
