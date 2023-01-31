@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models import Sum
 
 
 # Create your models here.
@@ -30,13 +32,24 @@ class Subject(models.Model):
 class Course(models.Model):
     # links to Subject subject
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null=True)
-    
+    student = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     name = models.CharField(max_length=100)
     credit_amount = models.DecimalField(default=0, max_digits=2, decimal_places=1)
     gpa = models.DecimalField(default=0, max_digits=3, decimal_places=2)    
-    
+
     
     def __str__(self):
         # "Returns a string representation of the model"
         return self.name
 
+class Student(models.Model):
+    student = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=80)
+    firstName = models.CharField(max_length=80)
+    lastName = models.CharField(max_length=80)
+    totalCredits = models.DecimalField(default=0, max_digits=3, decimal_places=1)
+    
+
+
+    def __str__(self):
+        return self.student.username
