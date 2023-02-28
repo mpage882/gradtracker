@@ -1,0 +1,47 @@
+{% extends 'msgrad_app/base.html' %}
+
+{% block content %}
+  
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+
+
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
+
+  <p id="subjects_name">{{uLabels}}</p>
+  <p id="subject_data">{{uData}}</p>
+  
+
+  <script>
+    var xValues = [];
+    var yValues = [];
+    var barColors = [
+    "#b91d47",
+    "#00aba9",
+    "#2b5797",
+    "#e8c3b9",
+    "#1e7145"
+    ];
+
+     new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: true,
+            text: "World Wide Wine Production"
+            }
+        }
+        });
+  </script>
+ 
+
+{% endblock %}

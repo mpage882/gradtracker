@@ -9,6 +9,7 @@ app_name = 'msgrad_app'
 urlpatterns = [
     # Home page
     path('', views.index, name='index'),
+    path('chart', views.dashboardChart, name='chart'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('subjects/<int:subject_id>/', views.subject, name='subject'),
     path('add_course/<int:subject_id>/', views.add_course, name='add_course'),
