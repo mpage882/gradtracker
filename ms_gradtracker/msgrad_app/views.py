@@ -7,11 +7,34 @@ from .forms import addCourseForm
 from django.contrib.auth.decorators import login_required
 
 from django.db.models import Sum,Q
-from django.http import Http404, HttpResponse
+from django.http import Http404
 
 
 
 # Create your views here.
+
+@login_required
+def dashboardChart(request):
+    subjects = Subject.objects.all().order_by('id').annotate(studentCredits=Sum('course__credit_amount', 
+    filter=Q(course__student_id=request.user)))
+    courses = Course.objects.filter(student=request.user)
+    totalCredits = courses.aggregate(total=Sum('credit_amount'))
+
+    uLabels = []
+    uData = []
+
+    for subject in subjects:
+        uLabels.append(subject.name)
+        uData.append(subject.studentCredits)
+
+    context = {'subjects': subjects,
+            'courses': courses,
+            'totalCredits': totalCredits,
+            'uLabels': uLabels,
+            'uData': uData
+            }
+    return render(request, 'msgrad_app/chart.html', context)
+
 
 # Returns Home Page
 def index(request):
@@ -25,11 +48,23 @@ def dashboard(request):
     courses = Course.objects.filter(student=request.user)
     totalCredits = courses.aggregate(total=Sum('credit_amount'))
 
+    labels = []
+    data = []
+
+    for subject in subjects:
+        labels.append(subject.name)
+        data.append(subject.studentCredits)
+
+    # print(labels)
+    # print(data)
+
     #print(totalCredits)    
 
     context = {'subjects': subjects,
                 'courses': courses,
                 'totalCredits': totalCredits,
+                'labels': labels,
+                'data': data
                }
     return render(request, 'msgrad_app/dashboard.html', context)
 
