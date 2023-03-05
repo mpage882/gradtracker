@@ -13,29 +13,6 @@ from django.http import Http404
 
 # Create your views here.
 
-@login_required
-def dashboardChart(request):
-    subjects = Subject.objects.all().order_by('id').annotate(studentCredits=Sum('course__credit_amount', 
-    filter=Q(course__student_id=request.user)))
-    courses = Course.objects.filter(student=request.user)
-    totalCredits = courses.aggregate(total=Sum('credit_amount'))
-
-    uLabels = []
-    uData = []
-
-    for subject in subjects:
-        uLabels.append(subject.name)
-        uData.append(subject.studentCredits)
-
-    context = {'subjects': subjects,
-            'courses': courses,
-            'totalCredits': totalCredits,
-            'uLabels': uLabels,
-            'uData': uData
-            }
-    return render(request, 'msgrad_app/chart.html', context)
-
-
 # Returns Home Page
 def index(request):
     return render(request, 'msgrad_app/index.html')
@@ -46,23 +23,23 @@ def dashboard(request):
     subjects = Subject.objects.all().order_by('id').annotate(studentCredits=Sum('course__credit_amount', 
         filter=Q(course__student_id=request.user)))
     courses = Course.objects.filter(student=request.user)
-    totalCredits = courses.aggregate(total=Sum('credit_amount'))
-
-    labels = []
-    data = []
+    totalCredits = 0 
+    requiredCredits = 0 
 
     for subject in subjects:
-        labels.append(subject.name)
-        data.append(subject.studentCredits)
+        requiredCredits += subject.credit_amount
 
-    # print(labels)
-    # print(data)
-
-    #print(totalCredits)    
-
+    for course in courses:
+        totalCredits += course.credit_amount
+ 
+    missingCredits = requiredCredits - totalCredits
+    data = [totalCredits, missingCredits]
+    labels = ['Your Credits', 'Missing Credits']
+    
     context = {'subjects': subjects,
                 'courses': courses,
                 'totalCredits': totalCredits,
+                'requiredCredits': requiredCredits,
                 'labels': labels,
                 'data': data
                }

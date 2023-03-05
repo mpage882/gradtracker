@@ -1,7 +1,7 @@
 {% extends "msgrad_app/base.html" %}
 
 
-{% block content %}
+{% block content %}    
 
     <h2>Welcome {{ user.first_name }}!</h2>
     <p>Click on the subject's name to add courses.</p>
@@ -29,9 +29,35 @@
         <tr>
             <td><b>Total:</b></td>
             <!-- FIXME: Create and add overall total variable here. -->
-            <td>{{ totalCredits.total }}/24.0</td>
+            <td>{{ totalCredits }}/{{ requiredCredits }}</td>
         </tr>     
     </table>
+    <br>
+
+    <div class="chart">
+        <div>
+            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+          <script>
+            const ctx = document.getElementById('myChart');
+          
+            new Chart(ctx, {
+              type: 'doughnut',
+              data: {  
+                datasets: [{
+                  data: [{% for data in data %} '{{ data }}', {% endfor %}],
+                  label: '# of Credits',
+                }],
+                  labels: {{labels|safe}},
+                  borderWidth: 1,
+              },
+              options: {
+                
+              }
+            });
+          </script>
+    </div>
 
 
 {% endblock content %}
