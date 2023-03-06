@@ -9,7 +9,7 @@
     <!-- Do a if user is authenticated so dashboard only appears for logged in user -->
 
     <!-- List Subjects with total credits to req. amount with links to subject -->
-    <table>
+    <table id="subjectTable">
         <tr>
            <th>Subject</th>
            <th>Credits</th>  
@@ -28,12 +28,12 @@
         {% endfor %} 
         <tr>
             <td><b>Total:</b></td>
-            <!-- FIXME: Create and add overall total variable here. -->
             <td>{{ totalCredits }}/{{ requiredCredits }}</td>
         </tr>     
     </table>
     <br>
 
+    <!-- Chart.js Doughnut for User's credits -->
     <div class="chart">
         <div>
             <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
@@ -50,11 +50,9 @@
                   label: '# of Credits',
                 }],
                   labels: {{labels|safe}},
-                  borderWidth: 1,
+                  borderWidth: 2,
               },
-              options: {
-                
-              }
+              options: {}
             });
           </script>
     </div>
