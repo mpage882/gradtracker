@@ -1,7 +1,7 @@
 {% extends "msgrad_app/base.html" %}
 
 
-{% block content %}
+{% block content %}    
 
     <h2>Welcome {{ user.first_name }}!</h2>
     <p>Click on the subject's name to add courses.</p>
@@ -9,7 +9,7 @@
     <!-- Do a if user is authenticated so dashboard only appears for logged in user -->
 
     <!-- List Subjects with total credits to req. amount with links to subject -->
-    <table>
+    <table id="subjectTable">
         <tr>
            <th>Subject</th>
            <th>Credits</th>  
@@ -28,10 +28,34 @@
         {% endfor %} 
         <tr>
             <td><b>Total:</b></td>
-            <!-- FIXME: Create and add overall total variable here. -->
-            <td>{{ totalCredits.total }}/24.0</td>
+            <td>{{ totalCredits }}/{{ requiredCredits }}</td>
         </tr>     
     </table>
+    <br>
+
+    <!-- Chart.js Doughnut for User's credits -->
+    <div class="chart">
+        <div>
+            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+          <script>
+            const ctx = document.getElementById('myChart');
+          
+            new Chart(ctx, {
+              type: 'doughnut',
+              data: {  
+                datasets: [{
+                  data: [{% for data in data %} '{{ data }}', {% endfor %}],
+                  label: '# of Credits',
+                }],
+                  labels: {{labels|safe}},
+                  borderWidth: 2,
+              },
+              options: {}
+            });
+          </script>
+    </div>
 
 
 {% endblock content %}
