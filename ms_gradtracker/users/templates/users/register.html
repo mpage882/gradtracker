@@ -2,19 +2,20 @@
 
 
 {% block content %} 
+	<br>
+	<div class="signup">
+		<h2>Register</h2>
 
-	<h2>Register</h2>
+		{% if form.errors %}
+			<p>Error. Unable to register.</p>
+		{% endif %}
 
-	{% if form.errors %}
-		<p>Error. Unable to register.</p>
-	{% endif %}
-
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}                    
-		<button class="btn btn-primary" type="submit">Register</button>
-	</form>
-	<p class="text-center">Already have an account? <a href="login">Login</a> instead.</p>
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}                    
+			<button class="button" type="submit" style="font-weight: bold;">Register</button>
+		</form>
+		<br>
+		<p class="text-center">Already have an account? <a href="login">Login</a> instead.</p>
 </div>
-
 {% endblock content %}

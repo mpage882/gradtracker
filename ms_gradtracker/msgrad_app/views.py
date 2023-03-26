@@ -12,6 +12,7 @@ from django.http import Http404
 
 
 
+
 # Create your views here.
 
 # Returns Home Page
@@ -91,7 +92,7 @@ def add_course(request, subject_id):
 def edit_course(request, course_id):
     course = Course.objects.get(id=course_id)
     subject = course.subject
-    if course.owner != request.user:
+    if course.student != request.user: 
         raise Http404
 
     if request.method != 'POST':

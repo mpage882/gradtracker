@@ -1,13 +1,15 @@
 {% extends "msgrad_app/base.html" %}
 
 {% block content %}
-
-    <p>Delete course:</p>
-    <form method='POST'>
-        {% csrf_token %}
-        <p>Are you sure you want to delete {{ course.name }}?</p>
-        <button type="submit">Delete</button>
-    </form>
-    <button><a href="{% url 'msgrad_app:subject' subject.id %}">Cancel</a></button>
-
+    <div class="editPage">
+        <h3>Delete course:</h3>
+        <form method='POST'>
+            {% csrf_token %}
+            <p>Are you sure you want to delete {{ course.name }}?</p>
+            <button class="button" id="delete">Delete</button>  
+            <button class="button" id="cancel"><a href="{% url 'msgrad_app:subject' subject.id %}">
+                Cancel</a></button>
+        </form>
+      
+    </div>
 {% endblock content%}

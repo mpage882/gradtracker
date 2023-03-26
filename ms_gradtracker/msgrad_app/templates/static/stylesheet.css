@@ -1,0 +1,254 @@
+#navigation{
+    background-color: #21aedd;
+}
+.rightMenu a {
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+.rightMenu a:hover{
+    color: black;
+}
+
+button a {
+    color: black;
+    text-decoration: none;
+}
+
+#indexContainer {
+    padding: 30px;
+}
+#indexContainer .row {
+    padding-right: 0px;
+}
+
+/* Register & other Submit buttons */
+.button {
+    background-color: #F7BE2E;
+    border-style: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+}
+.button:hover {
+    background-color: #4CAF50;
+}
+.button a:hover{
+    color: white;
+}
+
+
+/*Registration Page*/
+.signup {
+    margin: 20px;   
+}
+.signup button{
+   color: black; 
+}
+.signup a {
+    font-weight: bold;
+}
+
+
+/* login container */
+.container {
+    margin: 15px;
+}
+.container button:hover{
+    color: white;
+}
+.container a {
+    font-weight: bold;
+}
+
+
+/* Dashboard Section */
+/* ----------------------- */
+#dashboard-container {
+    margin-top: 15px;
+}
+
+/* Welcome name */
+.welcome-name p {
+    display: inline-block;
+    padding-right: 5px;
+    font-weight: 600;
+    text-decoration: underline;
+    color: #4CAF50;
+}
+
+/* Table that lists subjects */
+.subject-container{
+    float:left;
+    padding: 20px; 
+}
+
+#subjectTable th{
+    background-color: #21aedd;
+    padding: 10px;
+    font-family: sans-serif;
+    color: white;
+}
+
+#subjectTitle {   
+    border-top-left-radius: 5px;   
+}
+#creditsTitle {
+   border-top-right-radius: 5px;
+}
+
+#subjectTable td {
+    background-color: white;
+    border: 1px solid;
+    border-color: #21aedd;
+    padding: 10px;
+}
+
+#subjectTable a {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#subjectTable a:hover {
+    color: #4CAF50;
+
+}
+
+#totalsText {
+    font-weight: 600;
+}
+
+
+/* Chart.js */
+.chart {
+    float: right; 
+    /* display: inline-block; */
+    padding: 20px;
+    width:100%; 
+    max-width: 500px;
+}
+
+/* Individual Subject Page */
+.subjectPage {
+    padding: 20px;
+}
+#subjectName {
+    margin-top: 15px;
+}
+
+.courseCreditTitle p{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.courseWithButtons button{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.edit, .delete {
+    background-color: #F7BE2E;
+    border-style: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.edit:hover {
+    background-color: #4CAF50;
+}
+.edit a:hover, .delete a:hover{
+    color: white;
+}
+.delete:hover {
+    background-color: rgb(202, 37, 37);
+}
+
+.tableTitles {
+    text-decoration: underline;
+    font-weight: 600;
+    padding: 10px;
+}
+.listCourses th{
+    font-weight: 450;
+    padding: 15px;
+}
+.totalCreditAmt th {
+    padding: 15px;
+}
+
+.addCourse {
+    margin-top: 5px;
+    background-color: #F7BE2E;
+    border-style: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.addCourse:hover {
+    background-color: #21aedd;
+}
+.addCourse a:hover{
+    color: white;
+}
+.backDashboardLink {
+    margin-top: 15px;
+}
+.backDashboardLink a{
+    color: #4CAF50;
+    font-weight: 600;
+}
+.backDashboardLink a:hover{
+    color: #21aedd;
+}
+
+/* Edit Page */
+/* ----------------------- */
+.editPage {
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 20px;
+   
+}
+.editPage h3 {
+    margin-top: 5px;
+}
+.editPage form {
+    margin-top: 15px;
+}
+.editPage button {
+    margin-top: 10px;
+    color: white;
+    font-weight: 500;
+}
+.editPage h5 a{
+    color: #4CAF50;
+}
+.editPage h5 a:hover {
+    color: #21aedd;
+}
+.editPage h5 {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+/* Delete Page */
+/* ----------------------- */
+.editPage #delete {
+    margin-right: 10px;
+}
+
+#delete:hover {
+    background-color: rgb(202, 37, 37);
+}
+
+/* Forgot Page */
+/* ----------------------- */
+.signup .button{
+    color: black;
+    font-weight: 500;
+}
+.signup .button:hover{
+    color: white;
+}
+
+/* Screen size settings */

@@ -15,17 +15,25 @@
 
     {% load static %}
 
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+
     <!-- Navbar with logo -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light" id="navigation">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'msgrad_app:index' %}">
-            <img src="{% static 'black_grad-logo.png' %}" alt="" width="120" height="65" class="d-inline-block align-text-top">
-          </a>
+          {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'msgrad_app:dashboard' %}">
+              <img src="{% static 'white_grad-logo2.png' %}" alt="" width="195" height="50" class="d-inline-block align-text-top">
+            </a>
+          {% else %}
+            <a class="navbar-brand" href="{% url 'msgrad_app:index' %}">
+              <img src="{% static 'white_grad-logo2.png' %}" alt="" width="195" height="50" class="d-inline-block align-text-top">
+            </a>
+          {% endif %} 
           <div class="rightMenu">
-                <!-- dashboard and login will be on the right -->
-                <a href="{% url 'msgrad_app:dashboard' %}">Dashboard</a> -
                 <!-- Login/Logout will be buttons  -->
                 {% if user.is_authenticated %}
+                  <!-- dashboard and login will be on the right -->
+                    <a href="{% url 'msgrad_app:dashboard' %}">Dashboard</a>
                     <a href="{% url 'users:logout' %}">Logout</a>
                 {% else %}
                     <a href="{% url 'users:login' %}">Login</a>
@@ -34,7 +42,7 @@
         </div>
       </nav> 
 </head>
-<br>
+
 
 
 {% block content %}{% endblock content %}
