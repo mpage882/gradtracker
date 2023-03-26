@@ -30,9 +30,12 @@ To be announced
 - Dashboard with Chart.js 
 
 ![alt text](screenshots/dashboard.png)
+![alt text](screenshots/dashboard_gif.png)
 - Register/Login Function
+
 ![alt text](screenshots/login.png)
 - Add/Delete Course
+
 ![alt text](screenshots/add.png)
 ![alt text](screenshots/delete.png)
 
