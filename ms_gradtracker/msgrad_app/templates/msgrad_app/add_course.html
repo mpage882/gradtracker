@@ -1,14 +1,15 @@
 {% extends "msgrad_app/base.html" %}
 
 {% block content %}
+    <div class="editPage">
+        <h3>Add course:</h3>
 
-    <p><a href="{% url 'msgrad_app:subject' subject.id %}">{{ subject }}</a></p>
-
-    <p>Add course:</p>
-    <form action="{% url 'msgrad_app:add_course' subject.id %}" method='post'>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Add Course</button>
-    </form>
-
+        <form action="{% url 'msgrad_app:add_course' subject.id %}" method='post'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button">Add Course</button>
+            <h5 class="backSubject"><a href="{% url 'msgrad_app:subject' subject.id %}">
+                Back to {{ subject }}</h5>
+        </form>
+    </div>
 {% endblock content%}

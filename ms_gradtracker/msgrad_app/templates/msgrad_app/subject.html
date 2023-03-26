@@ -1,24 +1,43 @@
 {% extends "msgrad_app/base.html" %}
 
 {% block content %}
+    <div class="subjectPage">
+        <h2 id="subjectName">{{ subject }}</h2> 
 
-    <h2>{{ subject }}</h2>
-    <h5><a href="{% url 'msgrad_app:add_course' subject.id %}">Add course</a></h5>
+   
+        <table class="indvSubTable">
+            <tr class="tableTitles">
+                <th>Course Name</th>
+                <th>Credits</th>
+                <th>Actions</th>
+            </tr>
+            {% for course in courses %}
+            <tr class="listCourses">
+                <th>{{ course.name }}</th>
+                <th>{{ course.credit_amount }}</th>
+                <th class="courseActionButtons">
+                    <button class="edit"><a href="{% url 'msgrad_app:edit_course' course.id %}">
+                        Edit course</a></button>
+                    <button class="delete"><a href="{% url 'msgrad_app:delete_course' course.id %}">
+                        Delete course</a></button>
+                </th>
+            </tr>
+            {% empty %}
+             <tr>
+                <th>Add courses.</th>
+            </tr>
+            {% endfor %}
+            <tr class="totalCreditAmt">
+                <th>Total Credits:</th>
+                <th>{{ totalCredits.total }}</th>
+            </tr>
+        </table>
 
-    <ul>
-    {% for course in courses %}
-        <li>
-            <p>{{ course.name }} - {{ course.credit_amount }}</p> 
-            <p><a href="{% url 'msgrad_app:edit_course' course.id %}">Edit course</a></p>
-            <p><a href="{% url 'msgrad_app:delete_course' course.id %}">Delete course</a></p>
-        </li>
-    {% empty %}
-        <li>Add courses.</li>
-    {% endfor %}
-    </ul>
+        <button class="addCourse"><a href="{% url 'msgrad_app:add_course' subject.id %}">
+            Add course</a></button>
+     
+        
+        <h6 class="backDashboardLink"><a href="{% url 'msgrad_app:dashboard' %}">Back to Dashboard</h6>
 
-    <p>Total Credits: {{ totalCredits.total }}</p>
-
-    <h6><a href="{% url 'msgrad_app:dashboard' %}">Back to Dashboard</h6>
-
+    </div>
 {% endblock content %}

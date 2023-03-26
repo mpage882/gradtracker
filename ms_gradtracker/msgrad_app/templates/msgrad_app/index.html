@@ -1,10 +1,32 @@
 {% extends "msgrad_app/base.html" %}
+  <!-- <a href="https://www.freepik.com/free-vector/friendly-corgi-set_12291008.htm#query=dog%20illustration&position=21&from_view=search&track=ais">
+    Image by pch.vector</a> on Freepik-->
 
 
 {% block content %}
+{% load static %}
+<div class="container-fluid bg-light" id="indexContainer">
+    <!-- try adding image to right -->
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'Friendly corgi grad.png' %}" alt="" style="height: 300px; width: 300px;">
+        </div>
+        <div class="col">
+            <br>
+            <h3 id="welcome">GradTracker - Mississippi Edition </h3>
+            <p>The simple and easy way to keep track of your high school credits.</p>
+            <button type="btn" class="button"><a href=
+            "{% url 'users:register' %}"><strong>Register</strong></a></button>
+   
+        </div> 
+    </div>
+    <br>
+     
+</div>
 
-<p>Welcome to Grad Tracker - Mississippi Edition, </p>
-<p>the online tracking platform for your high school credits.</p>
-<a href="{% url 'users:register' %}">Register</a> 
+<!-- Screenshots of program and info -->
+<div class="container-fluid" id="home_screenshots">
+
+</div>
 
 {% endblock content%}
