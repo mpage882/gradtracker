@@ -29,8 +29,8 @@ To be announced
 ![alt text](screenshots/home.png)
 - Dashboard with Chart.js 
 
-![alt text](screenshots/dashboard.png)
-![alt text](screenshots/dashboard_gif.png)
+![Dashoard Image](screenshots/dashboard.png)
+![Dashboard Gif](screenshots/dashboard_gif.gif)
 - Register/Login Function
 
 ![alt text](screenshots/login.png)
