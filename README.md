@@ -29,12 +29,8 @@ To be announced
 - Dashboard with Chart.js 
 
 ![Dashoard Image](screenshots/dashboard.png)
-![Dashboard Gif](screenshots/dashboard_gif.gif)
-- Register/Login Function
 
-![alt text](screenshots/login.png)
-- Add/Delete Course
+- Register/Login & Add/Delete Functions
 
-![alt text](screenshots/add.png)
-![alt text](screenshots/delete.png)
+![Dashboard Gif](screenshots/gradtrack_demo2023.gif)
 
