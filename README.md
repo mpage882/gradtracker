@@ -1,8 +1,7 @@
 
-# GradTracker - MS Edition (In Progress)
+# GradTracker - High School Edition 
 
-This project is a web application that will allow Mississippi high school students to keep track of their credits and visually see their progress towards graduation.
-
+This project is a web application that allows high school students to keep track of their credits and visually see their progress towards graduation.
 
 
 
