@@ -34,3 +34,5 @@ To be announced
 
 ![Dashboard Gif](screenshots/gradtrack_demo2023.gif)
 
+## Image References
+- Dog character: <a href="https://www.freepik.com/free-vector/friendly-corgi-set_12291008.htm">Image by pch.vector</a> on Freepik
