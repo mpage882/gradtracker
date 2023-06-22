@@ -15,6 +15,8 @@ Django
 
 PostgreSQL
 
+VS Code
+
 #### Where is the app hosted?
 
 To be announced
