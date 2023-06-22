@@ -30,7 +30,7 @@ To be announced
 
 ![Dashoard Image](screenshots/dashboard.png)
 
-- Register/Login & Add/Delete Functions
+- Register/Login & Add/Delete Functions (Gif Below)
 
 ![Dashboard Gif](screenshots/gradtrack_demo2023.gif)
 
